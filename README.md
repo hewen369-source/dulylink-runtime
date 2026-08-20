@@ -42,6 +42,19 @@
 - 退出：`Ctrl + C`
 - 只查一次就退出（调试）：加 `-once`
 
+## 一台机器跑多个账号
+
+每个账号加 `-name 账号名`，各用一个独立实例：
+
+```bash
+./dulylink-rt -name 六二   -email liuer@test.com   -code 123456
+./dulylink-rt -name 张三   -email zhangsan@test.com -code 123456
+```
+
+- 每个账号的登录信息存在各自的 `~/.dulylink/<账号名>.json`（不指定 `-name` 则用默认的 `runtime.json`）。
+- 通知会自动带 `[账号名]` 前缀，例如 `[六二] 新私信 · 3 条未读`，一眼分清是哪个账号。
+- 账号名里不能当文件名的字符（如 `/`、`\`、`:`）会自动替换成 `_`。
+
 ## 校验文件完整性（可选）
 
 下载后可对照 SHA256 校验和（在 Release 页的 `SHA256SUMS.txt`）：
