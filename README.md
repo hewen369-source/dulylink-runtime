@@ -55,6 +55,19 @@
 - 通知会自动带 `[账号名]` 前缀，例如 `[六二] 新私信 · 3 条未读`，一眼分清是哪个账号。
 - 账号名里不能当文件名的字符（如 `/`、`\`、`:`）会自动替换成 `_`。
 
+## 开机自启
+
+登录后，让它开机自动常驻监听（不用每次手动启动）：
+
+```bash
+./dulylink-rt -name 六二 -autostart     # 设置开机自启
+./dulylink-rt -name 六二 -autostart-off # 取消
+```
+
+- macOS：写入 `~/Library/LaunchAgents/`（launchd，掉线会自动拉起）。
+- Linux（桌面）：写入 `~/.config/autostart/`（XDG 自启动）。
+- Windows：写入注册表 `HKCU\...\Run`。
+
 ## 校验文件完整性（可选）
 
 下载后可对照 SHA256 校验和（在 Release 页的 `SHA256SUMS.txt`）：
